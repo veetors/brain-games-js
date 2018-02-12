@@ -2,7 +2,7 @@
   "name": "brain-games-veetors",
   "version": "0.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "babel-node": "babel-node",

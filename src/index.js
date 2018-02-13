@@ -43,7 +43,7 @@ const brainEven = () => {
     return isUserRight ? iter(counter - 1) : false;
   };
 
-  return iter(5);
+  return iter(3);
 };
 
 export default brainEven;

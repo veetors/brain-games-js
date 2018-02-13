@@ -16,25 +16,10 @@ const randomNum = (min = 1, max = 101) => Math.floor(Math.random() * (max - min)
 
 const isEven = num => num % 2 === 0;
 
-const step = () => {
-  const num = randomNum();
-  const currentAnswer = isEven(num) ? 'yes' : 'no';
-  const userAnswer = readlineSync.question(`Question: ${num}\nYour answer: `);
-  const isUserRight = userAnswer.toLowerCase() === currentAnswer;
-  const answer = isUserRight
-    ?
-    'Correct!'
-    :
-    `'${userAnswer}' is wrong answer ;(. Correct answer was '${currentAnswer}'.\nLet's try again, Bill!`;
-
-  console.log(answer);
-
-  return isUserRight;
-};
-
 const brainEven = () => {
   greeting();
   printRules();
+
   const userName = getUserName();
 
   const iter = (counter) => {
@@ -43,11 +28,19 @@ const brainEven = () => {
       return false;
     }
 
-    if (!step()) {
-      return false;
-    }
+    const num = randomNum();
+    const currentAnswer = isEven(num) ? 'yes' : 'no';
+    const userAnswer = readlineSync.question(`Question: ${num}\nYour answer: `);
+    const isUserRight = userAnswer.toLowerCase() === currentAnswer;
+    const answer = isUserRight
+      ?
+      'Correct!'
+      :
+      `'${userAnswer}' is wrong answer ;(. Correct answer was '${currentAnswer}'.\nLet's try again, ${userName}!`;
 
-    return iter(counter - 1);
+    console.log(answer);
+
+    return isUserRight ? iter(counter - 1) : false;
   };
 
   return iter(5);

@@ -1,6 +1,6 @@
 {
   "name": "brain-games-veetors",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "dist"
   ],
   "bin": {
-    "brain-games": "dist/bin/brain-games.js",
+    "brain-calc": "dist/bin/brain-calc.js",
     "brain-even": "dist/bin/brain-even.js"
   },
   "dependencies": {

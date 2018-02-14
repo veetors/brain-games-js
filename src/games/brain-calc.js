@@ -1,4 +1,4 @@
-import { print, greeting, getUserName, randomNum, randomOperator, getUserAnswer } from '..';
+import { randomNum, randomOperator, getUserAnswer } from '..';
 
 const make = () => ({
   rules: 'What is the result of the expression?',

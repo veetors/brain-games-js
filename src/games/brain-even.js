@@ -1,4 +1,4 @@
-import { print, greeting, getUserName, randomNum, isEven, getUserAnswer } from '..';
+import { randomNum, isEven, getUserAnswer } from '..';
 
 const make = () => ({
   rules: 'Answer "yes" if number even otherwise answer "no".',

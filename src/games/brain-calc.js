@@ -1,4 +1,5 @@
-import { randomNum, randomOperator, getUserAnswer } from '..';
+import { getUserAnswer, run } from '..';
+import { randomNum, randomOperator } from '../generic';
 
 const make = () => ({
   rules: 'What is the result of the expression?',
@@ -30,4 +31,4 @@ const make = () => ({
   userAnswer: value => Number(getUserAnswer(value)),
 });
 
-export default make;
+export default () => run(make());

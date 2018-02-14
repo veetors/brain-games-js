@@ -1,4 +1,5 @@
-import { randomNum, isEven, getUserAnswer } from '..';
+import { getUserAnswer, run } from '..';
+import { randomNum, isEven } from '../generic';
 
 const make = () => ({
   rules: 'Answer "yes" if number even otherwise answer "no".',
@@ -10,5 +11,4 @@ const make = () => ({
   userAnswer: value => getUserAnswer(value),
 });
 
-export default make;
-
+export default () => run(make());

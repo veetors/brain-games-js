@@ -23,8 +23,8 @@ const run = (game) => {
     const data = game.data();
     const currentTask = game.task(data.num1, data.num2, data.operator);
     const currentAnswer = game.expectedAnswer(data.num1, data.num2, data.operator);
-    const userAnswer = game.userAnswer(currentTask);
-    const isUserRight = userAnswer === currentAnswer;
+    const userAnswer = getUserAnswer(currentTask);
+    const isUserRight = userAnswer === currentAnswer.toString();
     const answer = isUserRight
       ?
       'Correct!'

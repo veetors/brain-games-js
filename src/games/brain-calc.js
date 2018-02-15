@@ -1,7 +1,7 @@
-import { getUserAnswer, run } from '..';
+import { run } from '..';
 import { randomNum, randomOperator } from '../generic';
 
-const make = () => ({
+const game = {
   rules: 'What is the result of the expression?',
   data: () => ({
     num1: randomNum(1, 11),
@@ -28,7 +28,6 @@ const make = () => ({
         return num1 * num2;
     }
   },
-  userAnswer: value => Number(getUserAnswer(value)),
-});
+};
 
-export default () => run(make());
+export default () => run(game);

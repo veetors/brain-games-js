@@ -5,11 +5,11 @@ const greeting = () => print('Welcome to the Brain Games!');
 
 const getUserName = () => readlineSync.question('May I have your name? ');
 
-const getUserAnswer = task => readlineSync.question(`Question: ${task}\nYour answer: `);
+const getUserAnswer = question => readlineSync.question(`Question: ${question}\nYour answer: `);
 
-const run = (game) => {
+const run = (rules, func) => {
   greeting();
-  print(`${game.rules}\n`);
+  print(`${rules}\n`);
 
   const userName = getUserName();
   print(`Hello, ${userName}!\n`);
@@ -20,18 +20,16 @@ const run = (game) => {
       return false;
     }
 
-    const data = game.data();
-    const currentTask = game.task(data.num1, data.num2, data.operator);
-    const currentAnswer = game.expectedAnswer(data.num1, data.num2, data.operator);
-    const userAnswer = getUserAnswer(currentTask);
-    const isUserRight = userAnswer === currentAnswer.toString();
-    const answer = isUserRight
+    const data = func();
+    const userAnswer = getUserAnswer(data.question);
+    const isUserRight = userAnswer === data.answer;
+    const output = isUserRight
       ?
       'Correct!'
       :
-      `'${userAnswer}' is wrong answer ;(. Correct answer was '${currentAnswer}'.\nLet's try again, ${userName}!`;
+      `'${userAnswer}' is wrong answer ;(. Correct answer was '${data.answer}'.\nLet's try again, ${userName}!`;
 
-    print(answer);
+    print(output);
 
     return isUserRight ? iter(counter - 1) : false;
   };
@@ -39,9 +37,4 @@ const run = (game) => {
   return iter(3);
 };
 
-export {
-  greeting,
-  getUserName,
-  getUserAnswer,
-  run,
-};
+export default run;

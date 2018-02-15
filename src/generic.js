@@ -16,25 +16,11 @@ const randomOperator = () => {
 const isEven = num => num % 2 === 0;
 
 const greatestCommonDivisor = (num1, num2) => {
-  if (num1 === num2) {
-    return num1;
+  if (num2 === 0) {
+    return Math.abs(num1);
   }
 
-  const base = num1 < num2 ? Math.floor(num1 / 2) : Math.floor(num2 / 2);
-
-  const iter = (firstNum, secondNum, divisor) => {
-    if (divisor === 1) {
-      return 1;
-    }
-
-    if (firstNum % divisor === 0 && secondNum % divisor === 0) {
-      return divisor;
-    }
-
-    return iter(firstNum, secondNum, divisor - 1);
-  };
-
-  return iter(num1, num2, base);
+  return greatestCommonDivisor(num2, num1 % num2);
 };
 
 export {

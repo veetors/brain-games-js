@@ -4,8 +4,6 @@ const randomNum = (min = 1, max = 101) => Math.floor(Math.random() * (max - min)
 
 const identity = value => value;
 
-const compareNumeric = (num1, num2) => (num1 > num2 ? 1 : -1);
-
 const randomOperator = () => {
   const num = randomNum(1, 10);
   if (num <= 3) {
@@ -28,26 +26,11 @@ const greatestCommonDivisor = (num1, num2) => {
 };
 
 const balanceNum = (value) => {
-  const isBalanced = (coll) => {
-    const sorted = coll.sort(compareNumeric);
-
-    if (sorted.join('') !== value.toString()) {
-      return false;
-    }
-
-    if (sorted[coll.length - 1] - sorted[0] < 0 || sorted[coll.length - 1] - sorted[0] > 1) {
-      return false;
-    }
-
-    return true;
-  };
-
-  const nums = value.toString().split('').map(item => Number(item));
-
-  if (value.lenght === 1 || isBalanced(nums)) {
+  if (value.lenght === 1) {
     return value.toString();
   }
 
+  const nums = value.toString().split('').map(item => Number(item));
   const { length: digitsCount } = nums;
   const sumOfDigits = nums.reduce((acc, item) => acc + item, 0);
 
@@ -74,14 +57,35 @@ const getProgression = (num1, num2, count = 10, acc = []) => {
   return getProgression(num1 + num2, num2, count - 1, newAcc);
 };
 
+const isPrime = (num) => {
+  if (num < 2) {
+    return false;
+  }
+
+  const iter = (divisor = 2) => {
+    if (divisor > num / 2) {
+      return true;
+    }
+
+    if (num % divisor === 0) {
+      return false;
+    }
+
+    return iter(divisor + 1);
+  };
+
+  return iter();
+};
+
+
 export {
   print,
   identity,
-  compareNumeric,
   randomNum,
   randomOperator,
   isEven,
   greatestCommonDivisor,
   balanceNum,
   getProgression,
+  isPrime,
 };

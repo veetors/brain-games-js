@@ -64,6 +64,16 @@ const balanceNum = (value) => {
   return iter(sumOfDigits, digitsCount, '');
 };
 
+const getProgression = (num1, num2, count = 10, acc = []) => {
+  if (count < 1) {
+    return acc;
+  }
+
+  const newAcc = acc.concat(num1);
+
+  return getProgression(num1 + num2, num2, count - 1, newAcc);
+};
+
 export {
   print,
   identity,
@@ -73,4 +83,5 @@ export {
   isEven,
   greatestCommonDivisor,
   balanceNum,
+  getProgression,
 };

@@ -1,17 +1,17 @@
 import run from '..';
-import { randomNum, identity, isEven } from '../generic';
+import { randomNum, isEven } from '../generic';
 
 const rules = 'Answer "yes" if number even otherwise answer "no".';
 
 const gameData = () => {
   const num = randomNum().toString();
 
-  const generateTask = identity;
-  const expectedAnswer = value => (isEven(value) ? 'yes' : 'no');
+  const generateTask = num;
+  const expectedAnswer = isEven(num) ? 'yes' : 'no';
 
   return {
-    question: generateTask(num),
-    answer: expectedAnswer(num),
+    question: generateTask,
+    answer: expectedAnswer,
   };
 };
 

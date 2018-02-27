@@ -1,14 +1,12 @@
 import readlineSync from 'readline-sync';
 import { print } from './generic';
 
-const greeting = () => print('Welcome to the Brain Games!');
-
 const getUserName = () => readlineSync.question('May I have your name? ');
 
 const getUserAnswer = question => readlineSync.question(`Question: ${question}\nYour answer: `);
 
 const run = (rules, func) => {
-  greeting();
+  print('Welcome to the Brain Games!');
   print(`${rules}\n`);
 
   const userName = getUserName();

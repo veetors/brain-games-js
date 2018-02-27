@@ -4,8 +4,8 @@ import { randomNum, randomOperator } from '../generic';
 const rules = 'What is the result of the expression?';
 
 const gameData = () => {
-  const num1 = randomNum(1, 11);
-  const num2 = randomNum(1, 11);
+  const num1 = randomNum(2, 31);
+  const num2 = randomNum(2, 31);
   const operator = randomOperator();
 
   const generateTask = (firstNum, secondNum, sign) => {

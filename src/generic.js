@@ -1,23 +1,21 @@
-const print = message => console.log(message);
+export const print = message => console.log(message);
 
-const randomNum = (min = 1, max = 101) => Math.floor(Math.random() * (max - min)) + min;
+export const randomNum = (min = 1, max = 101) => Math.floor(Math.random() * (max - min)) + min;
 
-const identity = value => value;
-
-const randomOperator = () => {
-  const num = randomNum(1, 10);
-  if (num <= 3) {
+export const randomOperator = () => {
+  const num = randomNum(1, 4);
+  if (num === 1) {
     return 'plus';
-  } else if (num >= 7) {
+  } else if (num === 2) {
     return 'minus';
   }
 
   return 'multi';
 };
 
-const isEven = num => num % 2 === 0;
+export const isEven = num => num % 2 === 0;
 
-const greatestCommonDivisor = (num1, num2) => {
+export const greatestCommonDivisor = (num1, num2) => {
   if (num2 === 0) {
     return Math.abs(num1);
   }
@@ -25,7 +23,7 @@ const greatestCommonDivisor = (num1, num2) => {
   return greatestCommonDivisor(num2, num1 % num2);
 };
 
-const balanceNum = (value) => {
+export const balanceNum = (value) => {
   if (value.lenght === 1) {
     return value.toString();
   }
@@ -47,7 +45,7 @@ const balanceNum = (value) => {
   return iter(sumOfDigits, digitsCount, '');
 };
 
-const getProgression = (num1, num2, count = 10, acc = []) => {
+export const getProgression = (num1, num2, count = 10, acc = []) => {
   if (count < 1) {
     return acc;
   }
@@ -57,7 +55,7 @@ const getProgression = (num1, num2, count = 10, acc = []) => {
   return getProgression(num1 + num2, num2, count - 1, newAcc);
 };
 
-const isPrime = (num) => {
+export const isPrime = (num) => {
   if (num < 2) {
     return false;
   }
@@ -75,17 +73,4 @@ const isPrime = (num) => {
   };
 
   return iter();
-};
-
-
-export {
-  print,
-  identity,
-  randomNum,
-  randomOperator,
-  isEven,
-  greatestCommonDivisor,
-  balanceNum,
-  getProgression,
-  isPrime,
 };

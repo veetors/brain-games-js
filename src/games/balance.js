@@ -1,12 +1,12 @@
 import run from '..';
-import { randomNum, identity, balanceNum } from '../generic';
+import { randomNum, balanceNum } from '../generic';
 
 const rules = 'Balance the given number.';
 
 const gameData = () => {
   const num = randomNum(10, 1000);
 
-  const generateTask = identity;
+  const generateTask = value => value;
   const expectedAnswer = value => balanceNum(value);
 
   return {

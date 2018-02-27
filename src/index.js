@@ -6,7 +6,6 @@ const getUserName = () => readlineSync.question('May I have your name? ');
 const getUserAnswer = question => readlineSync.question(`Question: ${question}\nYour answer: `);
 
 const run = (rules, func) => {
-  print('Welcome to the Brain Games!');
   print(`${rules}\n`);
 
   const userName = getUserName();
